@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/ionic.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var url = "https://mbahe.000webhostapp.com/cordova/www/json.php";
+        $.getJSON(url, function(result) {
+            console.log(result);
+            $.each(result, function(i, field) {
+                var Id = field.Id;
+                var tpkamar=field.tpkamar;
+                var durasi=field.durasi;
+                var harga=field.harga;
+               
+                
+                $("#listview").append("<a class='item' href='form.html?Id=" + Id + "&tpkamar=" + tpkamar + "&durasi=" + durasi + "&harga=" + harga + "'><h2>"+ tpkamar + " </h2><h2>" + durasi + " </h2><h2>" + harga + "</a>");
+            });
+        });
+    });
+    </script>
+</head>
+
+<body>
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+        <a href="index.html" class="button button-clear">Home</a>
+        <h1 class="title">Read Database (JSON)</h1>
+    </div>
+    <br/>
+    <br/>
+    <ul class="list" id="listview">
+    </ul>
+</body>
+
+</html>
