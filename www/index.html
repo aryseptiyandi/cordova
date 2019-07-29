@@ -15,7 +15,7 @@
            
  
             
- var dataString="tpkamar=" +tpkamar+ "&durasi=" +durasi+ "&harga=" +harga+ "&insert=";
+ var dataString="nmpemesan=" +nmpemesan+ "&tpkamar=" +tpkamar+ "&durasi=" +durasi+ "&harga=" +harga+ "&insert=";
  if( $.trim(tpkamar).length>0 & $.trim(durasi).length>0  & $.trim(harga).length>0)
  {
                 $.ajax({
@@ -53,7 +53,11 @@
 
  <div class="list">
      <input type="hidden" id="id" value="" />
-<div class="item">
+        <div class="item">
+            <label>Nama Pemesan</label>
+            <input type="text" id="nmpemesan" value="" />
+        </div>
+	 <div class="item">
             <label>Tipe Kamar</label>
             <input type="text" id="tpkamar" value="" />
         </div>
