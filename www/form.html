@@ -7,20 +7,23 @@
     <script type="text/javascript">
     $(document).ready(function() {
         var Id = decodeURI(getUrlVars()["Id"]);
-         var tpkamar= decodeURI(getUrlVars()["tpkamar"]);
+	var nmpemesan= decodeURI(getUrlVars()["nmpemesan"]);
+        var tpkamar= decodeURI(getUrlVars()["tpkamar"]);
         var durasi = decodeURI(getUrlVars()["durasi"]);
         var harga = decodeURI(getUrlVars()["harga"]);
     
         $("#Id").val(Id);
+	$("#nmpemesan").val(nmpemesan);
         $("#tpkamar").val(tpkamar);
         $("#durasi").val(durasi);
         $("#harga").val(harga);
         $("#update").click(function() {
             var Id = $("#Id").val();
+            var nmpemesan = $("#nmpemesan").val();
             var tpkamar = $("#tpkamar").val();
             var durasi = $("#durasi").val();
             var harga = $("#harga").val();
-            var dataString = "Id=" + Id +"&tpkamar=" + tpkamar + "&durasi=" + durasi + "&harga=" + harga + "&update=";
+            var dataString = "Id=" + Id +"&nmpemesan=" +nmpemesan+ "&tpkamar=" + tpkamar + "&durasi=" + durasi + "&harga=" + harga + "&update=";
     
             $.ajax({
                 type: "POST",
@@ -79,6 +82,10 @@
 	<br>
     <div class="list">
         <input type="hidden" id="Id" value="" />
+	    <div class="item">
+            <label>Nama Pemesan</label>
+            <input type="text" id="nmpemesan" value="" />
+        </div>
         <div class="item">
             <label>Tipe Kamar</label>
             <input type="text" id="tpkamar" value="" />
