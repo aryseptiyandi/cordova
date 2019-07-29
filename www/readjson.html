@@ -10,12 +10,13 @@
             console.log(result);
             $.each(result, function(i, field) {
                 var Id = field.Id;
+                var nmpemesan=field.nmpemesan;
                 var tpkamar=field.tpkamar;
                 var durasi=field.durasi;
                 var harga=field.harga;
                
                 
-                $("#listview").append("<a class='item' href='form.html?Id=" + Id + "&tpkamar=" + tpkamar + "&durasi=" + durasi + "&harga=" + harga + "'><h2>"+ tpkamar + " </h2><h2>" + durasi + " </h2><h2>" + harga + "</a>");
+                $("#listview").append("<a class='item' href='form.html?Id=" + Id + "&nmpemesan=" + nmpemesan + "&tpkamar=" + tpkamar + "&durasi=" + durasi + "&harga=" + harga + "'><h2>"+ nmpemesan + " </h2><h2>"+ tpkamar + " </h2><h2>" + durasi + " </h2><h2>" + harga + "</a>");
             });
         });
     });
