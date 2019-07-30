@@ -5,18 +5,19 @@
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
-        var url = "https://mbahe.000webhostapp.com/cordova/www/json.php";
+        var url = "https://mbahesopo.000webhostapp.com/cordova/cordova/www/json.php";
         $.getJSON(url, function(result) {
             console.log(result);
             $.each(result, function(i, field) {
-                var Id = field.Id;
+                var Id = field.id;
                 var nmpemesan=field.nmpemesan;
+                var no_ktp=field.no_ktp;
                 var tpkamar=field.tpkamar;
                 var durasi=field.durasi;
                 var harga=field.harga;
                
                 
-                $("#listview").append("<a class='item' href='form.html?Id=" + Id + "&nmpemesan=" + nmpemesan + "&tpkamar=" + tpkamar + "&durasi=" + durasi + "&harga=" + harga + "'><h2>"+ nmpemesan + " </h2><h2>"+ tpkamar + " </h2><h2>" + durasi + " </h2><h2>" + harga + "</a>");
+                $("#listview").append("<a class='item' href='form.html?id=" + id + "&nmpemesan=" + nmpemesan + "&no_ktp=" + no_ktp +"&tpkamar=" + tpkamar + "&durasi=" + durasi + "&harga=" + harga + "'><h2>" + nmpemesan + " </h2><h2>" + no_ktp + " </h2><h2>" + tpkamar + " </h2><h2>" + durasi + " </h2><h2>" + harga + "</a>");
             });
         });
     });
