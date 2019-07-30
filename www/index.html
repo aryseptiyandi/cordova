@@ -7,20 +7,18 @@
     $(document).ready(function() {      
         $("#insert").click(function() {
 		
-            var Id      =$("#Id").val();
-	    var tpkamar      =$("#nmpemesan").val();
+            var Id      =$("#id").val();
+            var nmpemesan      =$("#nmpemesan").val();
+            var no_ktp      =$("#no_ktp").val();
             var tpkamar      =$("#tpkamar").val();
             var durasi       =$("#durasi").val();
             var harga           =$("#harga").val();
-           
- 
-            
- var dataString="nmpemesan=" +nmpemesan+ "&tpkamar=" +tpkamar+ "&durasi=" +durasi+ "&harga=" +harga+ "&insert=";
- if( $.trim(tpkamar).length>0 & $.trim(durasi).length>0  & $.trim(harga).length>0)
+            var dataString="&nmpemesan=" +nmpemesan+ &no_ktp=" +no_ktp+ &tpkamar=" +tpkamar+ "&durasi=" +durasi+ "&harga=" +harga+ "&insert=";
+            if( $.trim(nmpemesan).length>0 & $.trim(no_ktp).length>0 & $.trim(tpkamar).length>0 & $.trim(durasi).length>0  & $.trim(harga).length>0)
  {
                 $.ajax({
                     type: "POST",
-                    url: "https://mbahe.000webhostapp.com/cordova/www/insert.php",
+                    url: "https://mbahesopo.000webhostapp.com/cordova/cordova/www/insert.php",
                     data: dataString,
                     crossDomain: true,
                     cache: false,
@@ -52,12 +50,16 @@
 	<br>
 
  <div class="list">
-     <input type="hidden" id="id" value="" />
+        <input type="hidden" id="id" value=""/>
         <div class="item">
             <label>Nama Pemesan</label>
             <input type="text" id="nmpemesan" value="" />
         </div>
-	 <div class="item">
+        <div class="item">
+            <label>No KTP</label>
+            <input type="text" id="no_ktp" value="" />
+        </div>
+        <div class="item">
             <label>Tipe Kamar</label>
             <input type="text" id="tpkamar" value="" />
         </div>
@@ -70,8 +72,8 @@
             <input type="text" id="harga" value="" />
         </div>
         <div class="item">
- <input type="button" id="insert" class="button button-block" value="insert"/>
- </div>
- </div>
+        <input type="button" id="insert" class="button button-block" value="insert"/>
+     </div>
+  </div>
 </body>
 </html>
