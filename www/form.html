@@ -6,28 +6,32 @@
     <script type="text/javascript" src="js/geturi.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
-        var Id = decodeURI(getUrlVars()["Id"]);
-	var nmpemesan= decodeURI(getUrlVars()["nmpemesan"]);
+        var Id = decodeURI(getUrlVars()["id"]);
+        var nmpemesan= decodeURI(getUrlVars()["nmpemesan"]);
+        var no_ktp= decodeURI(getUrlVars()["no_ktp"]);
         var tpkamar= decodeURI(getUrlVars()["tpkamar"]);
         var durasi = decodeURI(getUrlVars()["durasi"]);
         var harga = decodeURI(getUrlVars()["harga"]);
     
-        $("#Id").val(Id);
-	$("#nmpemesan").val(nmpemesan);
+        $("#id").val(Id);
+        $("#nmpemesan").val(nmpemesan);
+        $("#no_ktp").val(no_ktp);
         $("#tpkamar").val(tpkamar);
         $("#durasi").val(durasi);
         $("#harga").val(harga);
-        $("#update").click(function() {
-            var Id = $("#Id").val();
+        $("#update").click(function() 
+		{
+            var Id = $("#id").val();
             var nmpemesan = $("#nmpemesan").val();
+            var no_ktp = $("#no_ktp").val();
             var tpkamar = $("#tpkamar").val();
             var durasi = $("#durasi").val();
             var harga = $("#harga").val();
-            var dataString = "Id=" + Id +"&nmpemesan=" +nmpemesan+ "&tpkamar=" + tpkamar + "&durasi=" + durasi + "&harga=" + harga + "&update=";
+            var dataString = "Id=" + id + "&nmpemesan=" + nmpemesan + "&no_ktp=" + no_ktp + "&tpkamar=" + tpkamar + "&durasi=" + durasi + "&harga=" + harga + "&update=";
     
             $.ajax({
                 type: "POST",
-                url: "https://mbahe.000webhostapp.com/cordova/www/update.php",
+                url: "https://mbahesopo.000webhostapp.com/cordova/cordova/www/update.php",
                 data: dataString,
                 crossDomain: true,
                 cache: false,
@@ -37,7 +41,7 @@
                 success: function(data) {
                     if (data == "success") {
                         alert("Updated");
-                        $("#update").val("update");
+                        $("#update").val("Update");
                     } else if (data == "error") {
                         alert("error");
                     }
@@ -46,11 +50,11 @@
 
         });
         $("#delete").click(function() {
-            var Id = $("#Id").val();
-            var dataString = "Id=" + Id + "&delete=";
+            var id = $("#id").val();
+            var dataString = "id=" + id + "&delete=";
             $.ajax({
                 type: "GET",
-                url: "https://mbahe.000webhostapp.com/cordova/www/delete.php",
+                url: "https://mbahesopo.000webhostapp.com/cordova/cordova/www/delete.php",
                 data: dataString,
                 crossDomain: true,
                 cache: false,
@@ -59,7 +63,7 @@
                 },
                 success: function(data) {
                     if (data == "success") {
-                        alert("Deleted");
+                        alert("deleted");
                         $("#delete").val("Delete");
                     } else if (data == "error") {
                         alert("error");
@@ -81,10 +85,14 @@
 	<br>
 	<br>
     <div class="list">
-        <input type="hidden" id="Id" value="" />
-	    <div class="item">
+        <input type="hidden" id="id" value=""/>
+        <div class="item">
             <label>Nama Pemesan</label>
             <input type="text" id="nmpemesan" value="" />
+        </div>
+        <div class="item">
+            <label>No KTP</label>
+            <input type="text" id="no_ktp" value="" />
         </div>
         <div class="item">
             <label>Tipe Kamar</label>
@@ -99,11 +107,10 @@
             <input type="text" id="harga" value="" />
         </div>
         <div class="item">
-    <input type="button" id="update" class="button button-block" value="update" />
+	<input type="button" id="update" class="button button-block" value="update" />
     <input type="button" id="delete" class="button button-block" value="delete" />
+        </div>
     </div>
-    </div>
-	
 </body>
 
 </html>
